@@ -1,13 +1,45 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
+/**
+ * Root Layout - Next.js 14 App Router
+ * Main application shell with providers
+ */
 
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import '@/lib/animations/micro-animations.css';
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
-  title: "Backup Management Dashboard",
-  description: "AI Call Center MVP - Backup and Restore Management",
+  title: {
+    default: 'VoiceOps AI - AI-Powered Call Center for Healthcare',
+    template: '%s | VoiceOps AI',
+  },
+  description: 'Russian AI call handling with Uzbek language support for healthcare clinics across Uzbekistan',
+  keywords: ['AI call center', 'healthcare', 'Uzbekistan', 'Russian AI', 'medical clinic'],
+  authors: [{ name: 'VoiceOps AI' }],
+  creator: 'VoiceOps AI',
+  openGraph: {
+    type: 'website',
+    locale: 'ru_RU',
+    url: 'https://voiceops.ai',
+    title: 'VoiceOps AI - AI Call Center for Healthcare',
+    description: 'Russian AI call handling with Uzbek support',
+    siteName: 'VoiceOps AI',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VoiceOps AI',
+    description: 'AI-Powered Call Center for Healthcare',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -16,35 +48,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-          <nav className="border-b bg-white/50 backdrop-blur-sm dark:bg-slate-900/50">
-            <div className="container mx-auto px-4 py-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <div className="text-2xl">📦</div>
-                  <h1 className="text-xl font-bold">Backup Management</h1>
-                </div>
-                <nav className="flex items-center space-x-6">
-                  <a href="/" className="text-sm font-medium hover:underline">
-                    Dashboard
-                  </a>
-                  <a href="/backups" className="text-sm font-medium hover:underline">
-                    Backups
-                  </a>
-                  <a href="/status" className="text-sm font-medium hover:underline">
-                    Status
-                  </a>
-                </nav>
-              </div>
-            </div>
-          </nav>
-          <main className="container mx-auto px-4 py-8">
-            {children}
-          </main>
-        </div>
-        <Toaster />
+    <html lang="en" className="dark">
+      <body className={`${inter.variable} font-sans antialiased`}>
+        {children}
       </body>
     </html>
   );
