@@ -1,0 +1,36 @@
+{
+  "name": "ai-call-center-mvp",
+  "version": "1.0.0",
+  "description": "AI Call Center SaaS MVP - Uzbekistan market (Russian AI + Uzbek human transfer)",
+  "main": "index.js",
+  "bin": {
+    "rovodev": "./cli/index.js"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step needed for serverless'",
+    "deploy": "vercel --prod",
+    "cli": "node cli/index.js",
+    "backup": "node cli/index.js backup",
+    "restore": "node cli/index.js restore",
+    "status": "node cli/index.js status"
+  },
+  "keywords": ["call-center", "ai", "voice", "yandex", "uzbekistan"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "axios": "^1.6.2",
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "inquirer": "^8.2.5",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
