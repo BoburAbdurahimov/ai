@@ -21,25 +21,39 @@ import {
   X,
   Sparkles,
   HelpCircle,
+  Bot,
+  PhoneCall,
+  Contact2,
+  ListChecks,
+  Network,
 } from 'lucide-react';
 import { Suspense } from 'react';
 
 const navigation = [
   {
-    name: 'Dashboard',
+    name: 'Overview',
     href: '/dashboard',
     icon: LayoutDashboard,
   },
   {
-    name: 'Calls',
-    href: '/calls',
-    icon: Phone,
-    badge: 'Live',
+    name: 'Agents',
+    href: '/agents',
+    icon: Bot,
   },
   {
-    name: 'Billing',
-    href: '/billing',
-    icon: CreditCard,
+    name: 'Phone Numbers',
+    href: '/numbers',
+    icon: Phone,
+  },
+  {
+    name: 'Clients',
+    href: '/clients',
+    icon: Contact2,
+  },
+  {
+    name: 'Cold Calling',
+    href: '/cold-calling',
+    icon: ListChecks,
   },
   {
     name: 'Analytics',
@@ -47,9 +61,14 @@ const navigation = [
     icon: BarChart3,
   },
   {
-    name: 'Team',
-    href: '/team',
-    icon: Users,
+    name: 'Integrations',
+    href: '/integrations',
+    icon: Network,
+  },
+  {
+    name: 'Billing',
+    href: '/billing',
+    icon: CreditCard,
   },
   {
     name: 'Settings',

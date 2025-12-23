@@ -1,50 +1,50 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Phone, Brain, BarChart3, Clock, Shield, Zap } from 'lucide-react';
+import { PhoneCall, CalendarClock, Headphones, Bot, BarChart3, Link2 } from 'lucide-react';
 
 const features = [
   {
-    icon: Phone,
-    title: 'Smart Call Handling',
-    description: 'AI agents handle calls naturally with advanced speech recognition and natural language understanding',
-    color: 'from-blue-500 to-blue-600'
+    icon: PhoneCall,
+    title: '24/7 приём звонков',
+    description: 'Русские звонки — ИИ, узбекские — к оператору. SLA 99.9%.',
+    color: 'from-blue-500 to-cyan-500'
   },
   {
-    icon: Brain,
-    title: 'Intelligent Analysis',
-    description: 'Real-time conversation analysis with sentiment detection and automatic summarization',
-    color: 'from-purple-500 to-purple-600'
+    icon: CalendarClock,
+    title: 'Бронирование и расписания',
+    description: 'Запись через голос, подтверждение слотов, напоминания.',
+    color: 'from-purple-500 to-indigo-500'
+  },
+  {
+    icon: Headphones,
+    title: 'Human fallback',
+    description: 'Мгновенный перевод на оператора для узбекского потока.',
+    color: 'from-pink-500 to-rose-500'
+  },
+  {
+    icon: Link2,
+    title: 'Telegram + Google Sheets',
+    description: 'Авто-создание Sheets, алерты в Telegram, дневные сводки.',
+    color: 'from-emerald-500 to-teal-500'
   },
   {
     icon: BarChart3,
-    title: 'Powerful Analytics',
-    description: 'Comprehensive dashboards with insights on call performance, trends, and customer behavior',
-    color: 'from-pink-500 to-pink-600'
+    title: 'Аналитика и стоимость',
+    description: 'Дашборды: исходы, конверсия, стоимость на звонок, SLA.',
+    color: 'from-amber-500 to-orange-500'
   },
   {
-    icon: Clock,
-    title: '24/7 Availability',
-    description: 'Never miss a call with AI agents that work around the clock without breaks',
-    color: 'from-green-500 to-green-600'
-  },
-  {
-    icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Bank-level encryption and compliance with GDPR, HIPAA, and industry standards',
-    color: 'from-orange-500 to-orange-600'
-  },
-  {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Sub-50ms response times ensure natural, flowing conversations without delays',
-    color: 'from-yellow-500 to-yellow-600'
+    icon: Bot,
+    title: 'Настройка агентов',
+    description: 'Скрипты, голосовые файлы, приветствия, правила fallback.',
+    color: 'from-slate-500 to-slate-700'
   }
 ];
 
 export function Features() {
   return (
-    <section className="py-24 bg-slate-900">
+    <section id="features" className="py-24 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">

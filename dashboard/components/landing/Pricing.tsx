@@ -7,60 +7,58 @@ import { Check } from 'lucide-react';
 const plans = [
   {
     name: 'Starter',
-    price: '99',
-    description: 'Perfect for small businesses',
+    price: '39',
+    description: 'BYO API ключи, базовая аналитика',
     features: [
-      '500 calls per month',
-      'Basic AI agents',
-      'Call analytics',
-      'Email support',
-      '24/7 availability'
+      '500 звонков в месяц',
+      'RU → AI, UZ → Human',
+      'Базовая аналитика',
+      '1 номер, 1 агент',
+      'Поддержка по email'
     ],
     cta: 'Start Free Trial',
     popular: false
   },
   {
-    name: 'Professional',
-    price: '299',
-    description: 'For growing teams',
+    name: 'Pro',
+    price: '99',
+    description: 'Управляемые API, кастомизация агентов',
     features: [
-      '2,000 calls per month',
-      'Advanced AI agents',
-      'Custom workflows',
-      'Priority support',
-      'Advanced analytics',
-      'API access'
+      '1 500 звонков в месяц',
+      'Платформенные API ключи',
+      'Telegram + Google Sheets',
+      'До 3 номеров и 3 агентов',
+      'Кастом скрипты/голоса'
     ],
     cta: 'Start Free Trial',
     popular: true
   },
   {
-    name: 'Enterprise',
-    price: 'Custom',
-    description: 'For large organizations',
+    name: 'Business',
+    price: '199',
+    description: 'Холодные обзвоны и продвинутая аналитика',
     features: [
-      'Unlimited calls',
-      'Custom AI training',
-      'Dedicated account manager',
-      '24/7 phone support',
-      'Custom integrations',
-      'SLA guarantee'
+      '1 500+ звонков (оверейдж)',
+      'Мультиагенты, мультиномера',
+      'Холодный обзвон',
+      'Продвинутая аналитика',
+      'Приоритетная поддержка'
     ],
-    cta: 'Contact Sales',
+    cta: 'Start Free Trial',
     popular: false
   }
 ];
 
 export function Pricing() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section id="pricing" className="py-24 bg-slate-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Choose the plan that fits your needs. All plans include a 14-day free trial.
+            Три тарифа с перерасходом $0.08 за звонок. Free trial 14 дней.
           </p>
         </div>
 
@@ -112,6 +110,11 @@ export function Pricing() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-8 text-center text-sm text-slate-400 space-y-1">
+          <p>Перерасход: $0.08 за звонок, мягкий потолок 2× квоты, далее требуется апгрейд.</p>
+          <p>Апгрейд — сразу с перерасчётом; даунгрейд — с нового периода.</p>
         </div>
       </div>
     </section>

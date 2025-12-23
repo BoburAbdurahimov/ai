@@ -19,10 +19,10 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#features" className="text-slate-300 hover:text-white transition">Features</Link>
-            <Link href="#pricing" className="text-slate-300 hover:text-white transition">Pricing</Link>
-            <Link href="/docs" className="text-slate-300 hover:text-white transition">Docs</Link>
-            <Link href="/dashboard" className="text-slate-300 hover:text-white transition">Dashboard</Link>
+            <Link href="#how" className="text-slate-300 hover:text-white transition">Как это работает</Link>
+            <Link href="#features" className="text-slate-300 hover:text-white transition">Функции</Link>
+            <Link href="#pricing" className="text-slate-300 hover:text-white transition">Цены</Link>
+            <Link href="#trust" className="text-slate-300 hover:text-white transition">Use Cases</Link>
           </div>
 
           {/* CTA Buttons */}
@@ -48,10 +48,10 @@ export function Navigation() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-slate-800">
             <div className="flex flex-col gap-4">
-              <Link href="#features" className="text-slate-300 hover:text-white transition py-2">Features</Link>
-              <Link href="#pricing" className="text-slate-300 hover:text-white transition py-2">Pricing</Link>
-              <Link href="/docs" className="text-slate-300 hover:text-white transition py-2">Docs</Link>
-              <Link href="/dashboard" className="text-slate-300 hover:text-white transition py-2">Dashboard</Link>
+              <Link href="#how" className="text-slate-300 hover:text-white transition py-2">Как это работает</Link>
+              <Link href="#features" className="text-slate-300 hover:text-white transition py-2">Функции</Link>
+              <Link href="#pricing" className="text-slate-300 hover:text-white transition py-2">Цены</Link>
+              <Link href="#trust" className="text-slate-300 hover:text-white transition py-2">Use Cases</Link>
               <div className="flex flex-col gap-2 pt-4 border-t border-slate-800">
                 <Button variant="ghost" className="w-full">Sign In</Button>
                 <Button className="w-full bg-blue-600 hover:bg-blue-700">Start Free Trial</Button>
