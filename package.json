@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'No build step needed for serverless'",
-    "deploy": "vercel --prod",
+    "build": "npm run build:backend",
+    "build:backend": "tsc -p backend/tsconfig.json",
+    "deploy": "npm run build && vercel --prod",
     "cli": "node cli/index.js",
     "backup": "node cli/index.js backup",
     "restore": "node cli/index.js restore",
@@ -21,13 +22,21 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
     "axios": "^1.6.2",
+    "bcrypt": "^5.1.0",
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
     "dotenv": "^16.3.1",
     "inquirer": "^8.2.5",
-    "ora": "^5.4.1"
+    "jsonwebtoken": "^9.0.0",
+    "ora": "^5.4.1",
+    "redis": "^4.6.0",
+    "zod": "^3.23.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
     "vercel": "^33.0.0"
   },
   "engines": {

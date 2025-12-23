@@ -1,8 +1,17 @@
 // Webhook endpoint: Call Input
 // Handles DTMF input and user speech during the call
+const { z } = require('zod');
 const { updateCall, logCallEvent, getCall, appendToTranscript } = require('../../lib/supabase');
 const { getChatResponse } = require('../../lib/llm');
 const { speechToText, textToSpeech } = require('../../lib/yandex');
+const { checkRateLimit } = require('../lib/rate-limiter');
+
+const requestSchema = z.object({
+  callId: z.string().min(1),
+  inputType: z.enum(['dtmf', 'speech']),
+  input: z.string().optional(),
+  audioData: z.string().optional()
+});
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -10,7 +19,26 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { callId, inputType, input, audioData } = req.body;
+    // Validate input shape early
+    const parsed = requestSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return res.status(400).json({ error: 'Invalid payload', details: parsed.error.flatten() });
+    }
+
+    const { callId, inputType, input, audioData } = parsed.data;
+
+    // Rate limit per call and caller (requires REDIS_URL)
+    const rateResult = await checkRateLimit(`call:${callId}`, {
+      windowMs: 10_000,
+      maxRequests: 15,
+      keyPrefix: 'call-input'
+    });
+    if (!rateResult.allowed) {
+      return res.status(429).json({
+        error: 'Too many requests',
+        retryAfter: rateResult.retryAfter
+      });
+    }
 
     if (!callId) {
       return res.status(400).json({ error: 'Missing callId' });
